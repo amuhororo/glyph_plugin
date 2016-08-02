@@ -7,7 +7,7 @@
 * line　 ： glyph画像。無ければデフォルトの「nextpage.gif」を使う
 * fix　　： trueを指定すると、left、及び、topを指定した位置に表示されます。
 * top　　： fix=true 時のみ有効。指定なしの場合0
-* left　 ： fix=true 時のみ有効。指定なしの場合0
+* left　 ： fix=true 時のみ有効。指定なしの場合0  
 ###アニメーション
 * anime　： trueを指定すると、アニメーションになります。
 * width　： 1コマ分の横サイズ。*anime=true 時は必須
