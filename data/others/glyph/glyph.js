@@ -39,7 +39,7 @@ tyrano.plugin.kag.tag.glyph.start = function(pm) {
 			j_next.css("width",pm.width + "px");
 			j_next.css("height",pm.height + "px");
 			j_next.css("animation","glyph " + pm.sec + "s steps(" + (pm.cut-1) +") " + alt + " infinite");
-			j_next.append('<style>@keyframes glyph{to{background-position:' + xy + ';}}</style>');
+			j_next.append('<style>@-webkit-keyframes glyph{to{background-position:' + xy + ';}}>@-moz-keyframes glyph{to{background-position:' + xy + ';}}@keyframes glyph{to{background-position:' + xy + ';}}</style>');
 		}
 	} else {
 		var j_next = $("<img id='glyph_image' />");
