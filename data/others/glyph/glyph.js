@@ -1,16 +1,16 @@
 tyrano.plugin.kag.tag.glyph.pm = {
-        line : "nextpage.gif",
-        layer : "message0",
-        fix : "false",
-        left : 0,
-        top : 0,
-		anime : "false",
-		width : ""  ,
-		height : "" ,
-		cut : "" ,
-		sec : 1 ,
-		alt : "false",
-		leng : "false"
+	line : "nextpage.gif",
+	layer : "message0",
+	fix : "false",
+	left : 0,
+	top : 0,
+	anime : "false",
+	width : ""  ,
+	height : "" ,
+	cut : "" ,
+	sec : 1 ,
+	alt : "false",
+	leng : "false"
 };
 	
 tyrano.plugin.kag.tag.glyph.start = function(pm) {
@@ -47,8 +47,8 @@ tyrano.plugin.kag.tag.glyph.start = function(pm) {
 		j_layer.append(j_next);
 	} else {
 		that.kag.variable.tf.glyph = j_next;
-		//var j_inner_message = that.kag.getMessageInnerLayer();
-		j_layer.find('p').not(':empty').append(j_next);
+		var j_inner_message = that.kag.getMessageInnerLayer();
+		j_inner_message.find('p').not(':empty').append(j_next);
 	}
 		
 	that.kag.stat.flag_glyph = "true";
