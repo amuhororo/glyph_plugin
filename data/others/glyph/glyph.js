@@ -1,3 +1,18 @@
+tyrano.plugin.kag.tag.glyph.pm = {
+        line : "nextpage.gif",
+        layer : "message0",
+        fix : "false",
+        left : 0,
+        top : 0,
+		anime : "false",
+		width : ""  ,
+		height : "" ,
+		cut : "" ,
+		sec : 1 ,
+		alt : "false",
+		leng : "false"
+};
+	
 tyrano.plugin.kag.tag.glyph.start = function(pm) {
 
 	var that = this;
@@ -5,8 +20,6 @@ tyrano.plugin.kag.tag.glyph.start = function(pm) {
 	$(".glyph_image").remove();						//デフォルトのグリフを消す（一応）
 	$("#glyph_image").remove();						//プラグインのグリフを消す
 
-	if(!pm.line) mp.line = "nextpage.gif";	//画像指定が無い場合はデフォルト画像を使用
-	if(!pm.sec) mp.sec = 1;					//秒数設定が無い場合は1s
 	var alt = "";
 	if(pm.alt=="true") var alt = "alternate ";		//往復設定
 	if(pm.leng=="true") var xy =  '0 -' + ((pm.cut-1)*pm.height) + 'px';	//縦移動か横移動か
@@ -31,15 +44,13 @@ tyrano.plugin.kag.tag.glyph.start = function(pm) {
 		j_next.css("z-index", 1001);
 		j_next.css("top", pm.top + "px");
 		j_next.css("left", pm.left + "px");
+		j_layer.append(j_next);
 	} else {
 		that.kag.variable.tf.glyph = j_next;
-		var j_inner_message = that.kag.getMessageInnerLayer();
-		j_inner_message.find('p').append(j_next);
+		//var j_inner_message = that.kag.getMessageInnerLayer();
+		j_layer.find('p').not(':empty').append(j_next);
 	}
-	
-	j_layer.append(j_next);
-	j_next.hide();	//とりあえず非表示に
-	
+		
 	that.kag.stat.flag_glyph = "true";
 	that.kag.ftag.nextOrder();
 
@@ -55,7 +66,7 @@ tyrano.plugin.kag.tag.p.start = function() {
 	var that = this;
 	this.kag.stat.flag_ref_page = true; 
 
-	console.log('glyph:'+that.kag.stat.f.glyph);
+	//console.log('glyph:'+that.kag.stat.f.glyph);
 
 	if (this.kag.stat.is_skip == true) {
 		//スキップ中の場合は、nextorder
@@ -73,7 +84,7 @@ tyrano.plugin.kag.tag.p.start = function() {
 			var j_inner_message = that.kag.getMessageInnerLayer();
 			j_inner_message.find('p').append(that.kag.variable.tf.glyph);
 		}
-		$("#glyph_image").css("display","inline-block");
+		$("#glyph_image").show();
 	}
 };
 
@@ -99,6 +110,6 @@ tyrano.plugin.kag.tag.l.start = function() {
 			var j_inner_message = that.kag.getMessageInnerLayer();
 			j_inner_message.find('p').append(that.kag.variable.tf.glyph);
 		}
-		$("#glyph_image").css("display","inline-block");
+		$("#glyph_image").show();
 	}
 };
