@@ -28,12 +28,19 @@ tyrano.plugin.kag.tag.glyph.start = function(pm) {
 	var j_layer = this.kag.layer.getLayer(pm.layer);
 	
 	if (pm.anime=="true" && pm.line!="nextpage.gif") {	//アニメ有効の場合
-		var j_next = $("<div id='glyph_image'></div>");
-		j_next.css("background","url(./tyrano/images/kag/" + pm.line + ") no-repeat");
-		j_next.css("width",pm.width + "px");
-		j_next.css("height",pm.height + "px");
-		j_next.css("animation","glyph " + pm.sec + "s steps(" + (pm.cut-1) +") " + alt + " infinite");
-		j_next.append('<style>@keyframes glyph{to{background-position:' + xy + ';}}</style>');
+		if(pm.width=="" || pm.height=="" || pm.cut=="" ){
+			var width = (pm.width=="") ? "「width」" : "" ;
+			var height = (pm.height=="") ? "「height」" : "" ;
+			var cut = (pm.cut=="") ? "「cut」" : "" ;
+			alert('glyphタグにパラメーター'+width+height+cut+'が指定されていません。');
+		}else{
+			var j_next = $("<div id='glyph_image'></div>");
+			j_next.css("background","url(./tyrano/images/kag/" + pm.line + ") no-repeat");
+			j_next.css("width",pm.width + "px");
+			j_next.css("height",pm.height + "px");
+			j_next.css("animation","glyph " + pm.sec + "s steps(" + (pm.cut-1) +") " + alt + " infinite");
+			j_next.append('<style>@keyframes glyph{to{background-position:' + xy + ';}}</style>');
+		}
 	} else {
 		var j_next = $("<img id='glyph_image' />");
 		j_next.attr("src", "./tyrano/images/kag/" + pm.line);
