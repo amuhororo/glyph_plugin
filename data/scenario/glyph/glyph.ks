@@ -15,6 +15,8 @@
 ;  　最初にglyph.ksファイルを読み込んでください。
 ;  　[call storage="glyph/glyph.ks"]
 ;
+;　　画像は、デフォルトの「nextpage.gif」と同じ、「/tyrano/images/kag/」内に保存してください。
+;
 ;　　タグの書きかたは、通常通りです。デフォルトのパラメータもそのまま使えます。
 ;　　例：[glyph line="glyph.png" anime=true cut=16 width=24 height=24 alt=true sec=1]
 ;
